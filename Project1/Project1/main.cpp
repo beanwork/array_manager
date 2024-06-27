@@ -17,7 +17,7 @@ void main()
 
 	uniform_int_distribution<int> dis(0, 99);
 
-	int *array = new int[num]; // 1 dimension array dynamic allocation
+	int *array = new int[num]; // 1 dimension array dynamic allocation ¤·
 
 	cout << "[ ";
 	for (int i = 0; i < num; i++)
