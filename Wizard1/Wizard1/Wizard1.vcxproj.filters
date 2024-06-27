@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="템플릿 파일">
+      <UniqueIdentifier>{cec7ea6d-a047-4ef5-9cb6-aff616cb4db2}</UniqueIdentifier>
+      <Extensions>txt</Extensions>
+    </Filter>
+    <Filter Include="HTML 파일">
+      <UniqueIdentifier>{4b2733cb-18bd-490e-a9dd-a1ad98da3ea9}</UniqueIdentifier>
+      <Extensions>htm</Extensions>
+    </Filter>
+    <Filter Include="이미지 파일">
+      <UniqueIdentifier>{e2991701-6412-4ce8-8e80-c1f393e5d66f}</UniqueIdentifier>
+      <Extensions>bmp</Extensions>
+    </Filter>
+    <Filter Include="스크립트 파일">
+      <UniqueIdentifier>{af1dcf0e-8ec2-47a0-a9f1-425d040d57e1}</UniqueIdentifier>
+      <Extensions>js</Extensions>
+    </Filter>
+    <Filter Include="기타 파일">
+      <UniqueIdentifier>{f245d195-4ee1-4cea-806c-8056efe11125}</UniqueIdentifier>
+      <Extensions>vsz;vsdir;ico;vcxproj;csproj;css;inf</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Templates\1042\ReadMe.txt">
+      <Filter>템플릿 파일</Filter>
+    </Text>
+    <Text Include="Templates\1042\Sample.txt">
+      <Filter>템플릿 파일</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Templates\1042\Templates.inf">
+      <Filter>기타 파일</Filter>
+    </None>
+    <None Include="Wizard1.vsz">
+      <Filter>기타 파일</Filter>
+    </None>
+    <None Include="Scripts\1042\default.js">
+      <Filter>스크립트 파일</Filter>
+    </None>
+    <None Include="default.vcxproj">
+      <Filter>기타 파일</Filter>
+    </None>
+    <None Include="Wizard1.vsdir">
+      <Filter>기타 파일</Filter>
+    </None>
+    <None Include="HTML\1042\default.htm">
+      <Filter>HTML 파일</Filter>
+    </None>
+    <None Include="1042\NewStyles.css">
+      <Filter>기타 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Wizard1.ico">
+      <Filter>기타 파일</Filter>
+    </Image>
+    <Image Include="Images\Wizard1.gif" />
+    <Image Include="Images\Wizard1_Background.gif" />
+    <Image Include="1042\Images\DottedHori.gif" />
+    <Image Include="1042\Images\DottedVert.gif" />
+    <Image Include="1042\Images\spacer.gif" />
+  </ItemGroup>
+</Project>
