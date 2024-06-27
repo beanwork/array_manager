@@ -17,7 +17,6 @@ void main()
 
 	uniform_int_distribution<int> dis(0, 99);
 
-
 	int *array = new int[num]; // 1차원 배열 동적 할당 
 
 	cout << "[ ";
@@ -28,6 +27,6 @@ void main()
 	}
 	cout << "]" << endl;
 
-	delete[] array;
+	delete[] array; 
 
 }
