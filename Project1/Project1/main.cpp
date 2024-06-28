@@ -3,9 +3,7 @@
 
 using namespace std;
 
-void Make1dimArray();
-void Make2dimArray();
-void Make3dArray();
+
 void InputRandNumber(int* array, int num);
 
 
@@ -17,7 +15,7 @@ void Make1dimArray()
 	cout << "select column number" << endl;
 	cin >> column_num;
 
-	int *array_1 = new int[column_num]; // 1 dimension array dynamic allocation 
+	int *array_1 = new int[column_num]; 
 	InputRandNumber(array_1, column_num);
 
 	delete[] array_1;
@@ -49,7 +47,7 @@ void Make2dimArray()
 }
 
 
-void Make3dArray()
+void Make3dimArray()
 {
 	int row_num;
 	int column_num;
