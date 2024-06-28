@@ -3,21 +3,29 @@
 
 using namespace std;
 
-void main()
+void Make2dimArray(int** array_2, int num);
+void InputRandNumber(int* array, int num);
+
+
+void Make2dimArray(int** array_2, int num)
 {
-	int num;
+	*array_2 = new int[num];
+	for (int i = 0; i < num; i++)
+	{
+		InputRandNumber(*array_2, num);
+		*array_2++;
+	}
+	delete[] array_2;
+}
 
-	cout << "select array number" << endl;
 
-	cin >> num;
-
+void InputRandNumber(int* array, int num)
+{
 	random_device rd;
 
 	mt19937 gen(rd());
 
 	uniform_int_distribution<int> dis(0, 99);
-
-	int *array = new int[num]; // 1 dimension array dynamic allocation ㅇ
 
 	cout << "[ ";
 	for (int i = 0; i < num; i++)
@@ -26,7 +34,33 @@ void main()
 		cout << array[i] << " ";
 	}
 	cout << "]" << endl;
+}
 
-	delete[] array; 
+
+void main()
+{
+	int num;
+
+	cout << "select array dimension" << endl;
+	cin >> num;
+
+	int *array_1 = new int[num]; // 1 dimension array dynamic allocation 
+
+	switch (num)
+	{
+	case 1:
+		break;
+	case 2:
+		Make2dimArray(&array_1, num);
+		break;
+	case 3:
+		Make2dimArray(&array_1, num);
+		break;
+	default:
+		if (num > 3) cout << "유효하지 않은 접근입니다" << endl;
+		break;
+	}
+	InputRandNumber(array_1, num);
+	delete[] array_1; 
 
 }
