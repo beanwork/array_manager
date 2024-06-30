@@ -15,7 +15,7 @@ public:
 	ArrayHandler()
 	{ }
 
-	void InputRandNumber(int* array, int num);
+	void DeleteElements();
 };
 #endif // !__ARRAY_HANDLER__
 

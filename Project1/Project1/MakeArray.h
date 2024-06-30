@@ -3,10 +3,6 @@
 #ifndef __MAKE_ARRAY__
 #define __MAKE_ARRAY__
 
-#include <iostream>
-
-using namespace std;
-
 class MakeArray 
 {
 private:
@@ -18,10 +14,10 @@ public:
 	MakeArray(int col, int row, int flr) : column_num(col), row_num(row), floor_num(flr)
 	{ }
 
-	void Make1dimArray() const;
-	void Make2dimArray() const;
-	void Make3dimArray() const;
-
+	void Make1dimArray();
+	void Make2dimArray();
+	void Make3dimArray();
+	void InputRandNumber(int* array, int num);
 
 };
 #endif // !__MAKE_ARRAY__
