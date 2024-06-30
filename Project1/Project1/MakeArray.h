@@ -3,6 +3,9 @@
 #ifndef __MAKE_ARRAY__
 #define __MAKE_ARRAY__
 
+#include <iostream>
+
+using namespace std;
 
 class MakeArray 
 {
@@ -12,15 +15,13 @@ private:
 	int floor_num;
 
 public:
-	MakeArray(int row=0, int col, int flr=0) : row_num(row), column_num(col), floor_num(flr)
+	MakeArray(int col=0, int row=0, int flr=0) : column_num(col), row_num(row), floor_num(flr)
 	{ }
 
 	void Make1dimArray();
 	void Make2dimArray();
 	void Make3dimArray();
-	void SelectColnum();
-	void SelectRownum();
-	void SelectFlrnum();
+
 
 };
 #endif // !__MAKE_ARRAY__

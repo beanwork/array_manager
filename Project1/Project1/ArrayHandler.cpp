@@ -1,8 +1,6 @@
-#include <iostream>
 #include <random>
 #include "ArrayHandler.h"
 
-using namespace std;
 
 void ArrayHandler::InputRandNumber(int* array, int num)
 {

@@ -1,12 +1,12 @@
 #include "MakeArray.h"
-#include <iostream>
+#include "ArrayHandler.h"
 
-using namespace std;
+ArrayHandler* Ah;
 
 void MakeArray::Make1dimArray()
 {
 	int *array_1 = new int[MakeArray::column_num];
-	//InputRandNumber(array_1, MakeArray::column_num);
+	Ah->InputRandNumber(array_1, MakeArray::column_num);
 
 	delete[] array_1;
 }
@@ -20,7 +20,7 @@ void MakeArray::Make2dimArray()
 	for (int i = 0; i < row_num; i++)
 	{
 		array_2[i] = array_1;
-		//InputRandNumber(array_2[i], MakeArray::column_num);
+		Ah->InputRandNumber(array_2[i], MakeArray::column_num);
 	}
 	delete[] array_2;
 	delete[] array_1;
@@ -39,43 +39,9 @@ void MakeArray::Make3dimArray()
 		for (int j = 0; j < row_num; j++)
 		{
 			array_2[i] = array_1;
-			//InputRandNumber(array_2[i], MakeArray::column_num);
+			Ah->InputRandNumber(array_2[i], MakeArray::column_num);
 		}
 		cout << endl;
 	}
 }
 
-void MakeArray::SelectColnum()
-{
-	int column_num;
-
-	cout << endl;
-	cout << "select column number" << endl;
-	cin >> column_num;
-
-	MakeArray::column_num = column_num;
-}
-
-
-void MakeArray::SelectRownum()
-{
-	int row_num;
-
-	cout << endl;
-	cout << "select row number" << endl;
-	cin >> row_num;
-
-	MakeArray::row_num = row_num;
-}
-
-
-void MakeArray::SelectFlrnum()
-{
-	int floor_num;
-
-	cout << endl;
-	cout << "select floor number" << endl;
-	cin >> floor_num;
-
-	MakeArray::floor_num = floor_num;
-}
