@@ -3,12 +3,14 @@
 
 using namespace std;
 
-int SelectColnum();
-int SelectRownum();
-int SelectFlrnum();
+int SelectColnum(int num);
+int SelectRownum(int num);
+int SelectFlrnum(int num);
 
-int SelectColnum()
+
+int SelectColnum(int num)
 {
+	if (num < 1) { return 0; }
 	int column_num;
 
 	cout << endl;
@@ -19,8 +21,10 @@ int SelectColnum()
 }
 
 
-int SelectRownum()
+int SelectRownum(int num)
 {
+	if (num < 2) { return 0; }
+	
 	int row_num;
 
 	cout << endl;
@@ -31,8 +35,10 @@ int SelectRownum()
 }
 
 
-int SelectFlrnum()
+int SelectFlrnum(int num)
 {
+	if (num < 3) { return 0; }
+
 	int floor_num;
 
 	cout << endl;
@@ -43,38 +49,44 @@ int SelectFlrnum()
 }
 
 void main()
-{
+{	
 	int num;
 
+	//try
+	//{
+	//	cout << "select array dimension" << endl;
+	//	cin >> num;
+
+	//	if (num > 3) { throw num; }
+	//}
+	//catch (const int exception)
+	//{
+	//	cout << exception << "차원은 안됩니다" << endl;
+	//	cout << "다시 선택해주세요" << endl;
+
+	//	cout << endl;
+	//	cout << "select array dimension" << endl;
+	//	cin >> num;
+	//}
+	
 	cout << "select array dimension" << endl;
 	cin >> num;
 
+	MakeArray Ma(SelectColnum(num), SelectRownum(num), SelectFlrnum(num));
+	
 	switch (num)
 	{
-		if (num > 3) 
-		{ 
-			cout << "유효하지 않은 접근입니다" << endl; 
-			break;
-		}
 	case 1:
-		MakeArray *Ma = new MakeArray(SelectColnum());
-		Ma->Make1dimArray();
-		delete  Ma;
+		Ma.Make1dimArray();
 		break;
 	case 2:
-		MakeArray *Ma = new MakeArray(SelectColnum(), SelectRownum());
-		Ma->Make2dimArray();
-		delete  Ma;
+		Ma.Make2dimArray();
 		break;
 	case 3:
-		MakeArray *Ma = new MakeArray(SelectColnum(), SelectRownum(), SelectFlrnum());
-		Ma->Make3dimArray();
-		delete  Ma;
+		Ma.Make3dimArray();
 		break;
 	default:
 		break;
 	}
 	
-	
-
 }

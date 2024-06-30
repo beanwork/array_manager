@@ -15,12 +15,12 @@ private:
 	int floor_num;
 
 public:
-	MakeArray(int col=0, int row=0, int flr=0) : column_num(col), row_num(row), floor_num(flr)
+	MakeArray(int col, int row, int flr) : column_num(col), row_num(row), floor_num(flr)
 	{ }
 
-	void Make1dimArray();
-	void Make2dimArray();
-	void Make3dimArray();
+	void Make1dimArray() const;
+	void Make2dimArray() const;
+	void Make3dimArray() const;
 
 
 };
