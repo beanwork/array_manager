@@ -3,15 +3,13 @@
 #ifndef __ARRAY_HANDLER__
 #define __ARRAY_HANDLER__
 
-#include "MakeArray.h"
-
-class ArrayHandler:public MakeArray
+class ArrayHandler
 {
 private:
 	int* array;
 public:
-	ArrayHandler(int row, int col, int flr, int* ar) : MakeArray(row, col, flr), 
-	{ }
+	ArrayHandler(int* ar)
+	{ array = ar; }
 
 	void InputRandNumber(int* array, int num);
 };

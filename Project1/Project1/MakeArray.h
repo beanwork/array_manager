@@ -3,7 +3,8 @@
 #ifndef __MAKE_ARRAY__
 #define __MAKE_ARRAY__
 
-class MakeArray
+
+class MakeArray 
 {
 private:
 	int row_num;
@@ -11,7 +12,7 @@ private:
 	int floor_num;
 
 public:
-	MakeArray(int row, int col, int flr) : row_num(row), column_num(col), floor_num(flr)
+	MakeArray(int row=0, int col, int flr=0) : row_num(row), column_num(col), floor_num(flr)
 	{ }
 
 	void Make1dimArray();
