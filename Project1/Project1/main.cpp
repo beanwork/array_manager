@@ -1,11 +1,12 @@
 #include <iostream>
-#include "MakeArray.h"
+#include "ArrayHandler.h"
 
 using namespace std;
 
 int SelectColnum(int num);
 int SelectRownum(int num);
 int SelectFlrnum(int num);
+int SelectElement();
 
 
 int SelectColnum(int num)
@@ -48,9 +49,22 @@ int SelectFlrnum(int num)
 	return floor_num;
 }
 
+
+int SelectElement()
+{
+	int col, row, flr;
+	cout << "select elements" << endl;
+	cin >> flr;
+	cin >> row;
+	cin >> col;
+
+	return flr, row, col;
+}
+
+
 void main()
 {	
-	int num;
+	int num(0);
 
 	//try
 	//{
@@ -69,24 +83,29 @@ void main()
 	//	cin >> num;
 	//}
 	
-	cout << "select array dimension" << endl;
-	cin >> num;
-
-	MakeArray Ma(SelectColnum(num), SelectRownum(num), SelectFlrnum(num));
-	
-	switch (num)
+	while (num != 5)
 	{
-	case 1:
-		Ma.Make1dimArray();
-		break;
-	case 2:
-		Ma.Make2dimArray();
-		break;
-	case 3:
-		Ma.Make3dimArray();
-		break;
-	default:
-		break;
+		cout << "select array dimension" << endl;
+		cin >> num;
+
+		ArrayHandler Ah(SelectColnum(num), SelectRownum(num), SelectFlrnum(num));
+
+		switch (num)
+		{
+		case 1:
+			Ah.Make1dimArray();
+			break;
+		case 2:
+			Ah.Make2dimArray();
+			break;
+		case 3:
+			Ah.Make3dimArray();
+			break;
+		default:
+			break;
+		}
+
+		Ah.showElement();
 	}
-	
+
 }
