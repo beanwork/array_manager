@@ -30,18 +30,23 @@ void ArrayHandler::Make2dimArray()
 
 void ArrayHandler::Make3dimArray()
 {
-	ArrayHandler::array_3 = new int**[ArrayHandler::floor_num];
-
+	
 	for (int i = 0; i < ArrayHandler::floor_num; i++)
-	{	
-		ArrayHandler::array_2 = new int*[ArrayHandler::row_num];
-		ArrayHandler::array_3[i] = ArrayHandler::array_2;
+	{
+		ArrayHandler::array_3 = new int**[ArrayHandler::floor_num];
+
 		
 		for (int j = 0; j < ArrayHandler::row_num; j++)
 		{
-			ArrayHandler::array_1 = new int[ArrayHandler::column_num];
-			ArrayHandler::array_2[i] = ArrayHandler::array_1;
-			ArrayHandler::InputRandNumber(ArrayHandler::array_2[i], ArrayHandler::column_num);
+			ArrayHandler::array_2 = new int*[ArrayHandler::row_num];
+			ArrayHandler::array_3[i] = ArrayHandler::array_2;
+			
+			for (int k = 0; k < ArrayHandler::column_num; k++)
+			{
+				ArrayHandler::array_1 = new int[ArrayHandler::column_num];
+				ArrayHandler::array_2[i] = ArrayHandler::array_1;
+				ArrayHandler::InputRandNumber(ArrayHandler::array_2[i], ArrayHandler::column_num);
+			}		
 		}
 		cout << endl;
 	}
