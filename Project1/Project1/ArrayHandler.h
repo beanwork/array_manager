@@ -22,7 +22,7 @@ public:
 	void Make3dimArray();
 	void InputRandNumber(int* array, int num);
 	void showElement();
-	void changeElement();
+	int  changeElement(int val, int col=0, int row=0, int flr=0);
 	void insertElement();
 	void deleteElement();
 

@@ -1,6 +1,0 @@
-VSWIZARD 7.0
-Wizard=VsWizard.VsWizardEngine.14.0
-
-Param="WIZARD_NAME = Wizard1"
-Param="ABSOLUTE_PATH = C:\Users\user\Source\Repos\array_manager\Wizard1\Wizard1"
-Param="FALLBACK_LCID = 1042"
