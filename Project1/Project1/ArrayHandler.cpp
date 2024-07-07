@@ -181,7 +181,7 @@ void ArrayHandler::changeElement(int val, int col=0, int row=0, int flr=0)
 		ArrayHandler::array_2[row][col] = val;
 	}
 
-	else 
+	else if (ArrayHandler::array_3 != nullptr && ArrayHandler::array_2 != nullptr && ArrayHandler::array_1 != nullptr)
 	{
 		ArrayHandler::array_3[flr][row][col] = val;
 	}
