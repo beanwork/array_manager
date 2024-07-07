@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef __MAKE_ARRAY__
-#define __MAKE_ARRAY__
+#ifndef __ARRAY_HANDLER__
+#define __ARRAY_HANDLER__
 
 class ArrayHandler
 {
@@ -14,17 +14,25 @@ private:
 	int*** array_3 = nullptr;
 
 public:
-	ArrayHandler(int col, int row, int flr) : column_num(col), row_num(row), floor_num(flr)
-	{ }
+	ArrayHandler()
+	{
+		row_num=0;
+		column_num=0;
+		floor_num=0;
+	}
 
 	void Make1dimArray();
 	void Make2dimArray();
 	void Make3dimArray();
 	void InputRandNumber(int* array, int num);
 	void showElement();
-	int  changeElement(int val, int col=0, int row=0, int flr=0);
+	void changeElement(int val, int col, int row, int flr);
 	void insertElement();
 	void deleteElement();
+	void SelectColnum(int num);
+	void SelectRownum(int num);
+	void SelectFlrnum(int num);
+	int SelectElement();
 
 	~ArrayHandler()
 	{
@@ -33,4 +41,4 @@ public:
 		if (array_3 != nullptr) { delete[] array_3; }
 	}
 };
-#endif // !__MAKE_ARRAY__
+#endif // !__ARRAY_HANDLER__

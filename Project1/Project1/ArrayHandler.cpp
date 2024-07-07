@@ -6,6 +6,60 @@
 using namespace std;
 
 
+void ArrayHandler::SelectColnum(int num)
+{
+	if (num < 1) { ArrayHandler::column_num = 0; }
+	int col;
+
+	cout << endl;
+	cout << "select column number" << endl;
+	cin >> col;
+	
+	ArrayHandler::column_num = col;
+
+}
+
+
+void ArrayHandler::SelectRownum(int num)
+{
+	if (num < 2) { ArrayHandler::row_num =0; }
+
+	int row_num;
+
+	cout << endl;
+	cout << "select row number" << endl;
+	cin >> row_num;
+
+	ArrayHandler::row_num = row_num;
+}
+
+
+void ArrayHandler::SelectFlrnum(int num)
+{
+	if (num < 3) { ArrayHandler::floor_num =0; }
+
+	int floor_num;
+
+	cout << endl;
+	cout << "select floor number" << endl;
+	cin >> floor_num;
+
+	ArrayHandler::floor_num = floor_num;
+}
+
+
+int ArrayHandler::SelectElement()
+{
+	int col, row, flr;
+	cout << "select elements" << endl;
+	cin >> flr;
+	cin >> row;
+	cin >> col;
+
+	return flr, row, col;
+}
+
+
 void ArrayHandler::Make1dimArray()
 {
 	ArrayHandler::array_1= new int[ArrayHandler::column_num];
@@ -109,12 +163,12 @@ void ArrayHandler::showElement()
 		}
 	}
 }
-int ArrayHandler::changeElement(int val, int col=0, int row=0, int flr=0)
+void ArrayHandler::changeElement(int val, int col=0, int row=0, int flr=0)
 {
 	if (ArrayHandler::array_3 == nullptr &&  ArrayHandler::array_2 == nullptr && ArrayHandler::array_1 == nullptr)
 	{
 		cout << "만들어진 배열이 없습니다" << endl;
-		return 0;
+		
 	}
 
 	else if (ArrayHandler::array_3 == nullptr && ArrayHandler::array_2 == nullptr && ArrayHandler::array_1 != nullptr)
@@ -132,3 +186,5 @@ int ArrayHandler::changeElement(int val, int col=0, int row=0, int flr=0)
 		ArrayHandler::array_3[flr][row][col] = val;
 	}
 }
+
+
