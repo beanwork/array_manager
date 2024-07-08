@@ -193,15 +193,18 @@ void ArrayHandler::deleteElement(bool row_or_col)
 	{
 		if (row_or_col)
 		{
-			delete[] array_1;
-			//array_1 = nullptr;
+			for (int i = 0; i < column_num; i++)
+			{
+				array_1[i] = -1;
+			}
 		}
-		else
+		else 
 		{
 			int col;
-			cout << "몇 번째 열을 지울까요 : ";
+			cout << "몇 번째 열을 지울까요 : " << endl;
 			cin >> col;
-			delete array_1;
+
+			array_1[col - 1] = -1;
 		}
 	}
 
@@ -212,21 +215,50 @@ void ArrayHandler::deleteElement(bool row_or_col)
 			int row;
 			cout << "몇 번째 행을 지울까요 : ";
 			cin >> row;
-			delete[] array_2[row-1];
+			
+			for (int i = 0; i < column_num; i++)
+			{
+				array_2[row - 1][i] = -1;
+			}
+		}
+		else
+		{
+			int col;
+			cout << "몇 번째 열을 지울까요 : ";
+			cin >> col;
+
+			for (int i = 0; i < row_num; i++)
+			{
+				array_2[i][col - 1] = -1;
+			}
 		}
 	}
 
 	else if (array_3 != nullptr &&  array_2 != nullptr && array_1 != nullptr)
 	{
+		int flr, row, col;
+		cout << "몇 번째 행렬을 지울까요 : ";
+		cin >> flr;
+
 		if (row_or_col)
 		{
-			int flr, row;
-			cout << "몇 번째 행렬을 지울까요 : ";
-			cin >> flr;
-
 			cout << "몇 번째 행을 지울까요 : ";
 			cin >> row;
-			delete[] array_3[flr-1][row-1];
+
+			for (int i = 0; i < column_num; i++)
+			{
+				array_3[flr - 1][row - 1][i] = -1;
+			}
+		}
+		else
+		{
+			cout << "몇 번째 열을 지울까요 : ";
+			cin >> col;
+
+			for (int i = 0; i < row_num; i++)
+			{
+				array_3[flr - 1][i][col - 1] = -1;
+			}
 		}
 	}
 }

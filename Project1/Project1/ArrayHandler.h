@@ -35,9 +35,23 @@ public:
 
 	~ArrayHandler()
 	{
-		if (array_1 != nullptr) { delete[] array_1; }
-		if (array_2 != nullptr) { delete[] array_2; }
-		if (array_3 != nullptr) { delete[] array_3; }
+		if (array_1 != nullptr)
+		{
+			delete[] array_1;
+		}
+
+		if (array_2 != nullptr)
+		{
+			for (int i = 0; i < row_num; i++) { delete[] array_1; }
+			delete[] array_2;
+		}
+
+		if (array_3 != nullptr)  
+		{ 
+			for (int i = 0; i < row_num; i++) { delete[] array_1; }
+			for (int j = 0; j < floor_num; j++) { delete[] array_2; }
+			delete[] array_3;
+		}
 	}
 };
 #endif // !__ARRAY_HANDLER__

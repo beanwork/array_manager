@@ -50,6 +50,7 @@ void makeArray()
 	cin >> num;
 
 	Ah.SelectColnum(num);
+	if (num > 3) { num = 3; }
 
 	switch (num)
 	{
@@ -105,8 +106,10 @@ void deleteElement()
 	{
 	case 1:
 		Ah.deleteElement(true);
+		break;
 	case 2:
 		Ah.deleteElement(false);
+		break;
 
 	default:
 		break;
