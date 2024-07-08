@@ -48,53 +48,41 @@ void ArrayHandler::SelectFlrnum(int num)
 }
 
 
-int ArrayHandler::SelectElement()
-{
-	int col, row, flr;
-	cout << "select elements" << endl;
-	cin >> flr;
-	cin >> row;
-	cin >> col;
-
-	return flr, row, col;
-}
-
-
 void ArrayHandler::Make1dimArray()
 {
-	ArrayHandler::array_1= new int[ArrayHandler::column_num];
-	ArrayHandler::InputRandNumber(ArrayHandler::array_1, ArrayHandler::column_num);
+	array_1= new int[column_num];
+	InputRandNumber(array_1, column_num);
 }
 
 
 void ArrayHandler::Make2dimArray()
 {
-	ArrayHandler::array_2 = new int*[ArrayHandler::row_num];
+	array_2 = new int*[row_num];
 
-	for (int i = 0; i < ArrayHandler::row_num; i++)
+	for (int i = 0; i < row_num; i++)
 	{
-		ArrayHandler::array_1 = new int[ArrayHandler::column_num];
-		ArrayHandler::array_2[i] = ArrayHandler::array_1;
+		array_1 = new int[column_num];
+		array_2[i] = array_1;
 		
-		ArrayHandler::InputRandNumber(ArrayHandler::array_2[i], ArrayHandler::column_num);
+		InputRandNumber(array_2[i], column_num);
 	}
 }
 
 
 void ArrayHandler::Make3dimArray()
 {
-	ArrayHandler::array_3 = new int**[ArrayHandler::floor_num];
+	array_3 = new int**[floor_num];
 	
-	for (int i = 0; i < ArrayHandler::floor_num; i++)
+	for (int i = 0; i < floor_num; i++)
 	{
-		ArrayHandler::array_2 = new int*[ArrayHandler::row_num];
-		ArrayHandler::array_3[i] = ArrayHandler::array_2;
+		array_2 = new int*[row_num];
+		array_3[i] = array_2;
 		
 		for (int j = 0; j < ArrayHandler::row_num; j++)
 		{
-			ArrayHandler::array_1 = new int[ArrayHandler::column_num];
-			ArrayHandler::array_2[j] = ArrayHandler::array_1;
-			ArrayHandler::InputRandNumber(ArrayHandler::array_2[j], ArrayHandler::column_num);
+			array_1 = new int[column_num];
+			array_2[j] = array_1;
+			InputRandNumber(array_2[j], column_num);
 		}
 		cout << endl;
 	}
@@ -121,24 +109,29 @@ void ArrayHandler::InputRandNumber(int* array, int num)
 
 void ArrayHandler::showElement()
 {	
+	if (array_3 == nullptr &&  array_2 == nullptr && array_1 == nullptr)
+	{
+		cout << "만들어진 배열이 없습니다" << endl;
+	}
 	
-	if (ArrayHandler::array_3 == nullptr && ArrayHandler::array_2 == nullptr && ArrayHandler::array_1 != nullptr)
+	
+	else if (array_3 == nullptr && array_2 == nullptr && array_1 != nullptr)
 	{
 		cout << "[ ";
-		for (int i = 0; i < ArrayHandler::column_num; i++)
+		for (int i = 0; i < column_num; i++)
 		{
 			cout << array_1[i] << " ";
 		}
 		cout << "]" << endl;
 	}
 
-	else if (ArrayHandler::array_3 == nullptr && ArrayHandler::array_2 != nullptr && ArrayHandler::array_1 != nullptr)
+	else if (array_3 == nullptr && array_2 != nullptr && array_1 != nullptr)
 	{
 		
-		for (int i = 0; i < ArrayHandler::row_num; i++)
+		for (int i = 0; i < row_num; i++)
 		{	
 			cout << "[ ";
-			for (int j = 0; j < ArrayHandler::column_num; j++)
+			for (int j = 0; j < column_num; j++)
 			{
 				cout << array_2[i][j] << " ";
 			}
@@ -146,14 +139,14 @@ void ArrayHandler::showElement()
 		}
 	}
 
-	else if (ArrayHandler::array_3 != nullptr && ArrayHandler::array_2 != nullptr && ArrayHandler::array_1 != nullptr)
+	else if (array_3 != nullptr && array_2 != nullptr && array_1 != nullptr)
 	{
-		for (int i = 0; i < ArrayHandler::floor_num; i++)
+		for (int i = 0; i < floor_num; i++)
 		{
-			for (int j = 0; j < ArrayHandler::row_num; j++)
+			for (int j = 0; j < row_num; j++)
 			{
 				cout << "[ ";
-				for (int k = 0; k < ArrayHandler::column_num; k++)
+				for (int k = 0; k < column_num; k++)
 				{
 					cout << array_3[i][j][k] << " ";
 				}
@@ -163,27 +156,78 @@ void ArrayHandler::showElement()
 		}
 	}
 }
+
+
 void ArrayHandler::changeElement(int val, int col=0, int row=0, int flr=0)
 {
-	if (ArrayHandler::array_3 == nullptr &&  ArrayHandler::array_2 == nullptr && ArrayHandler::array_1 == nullptr)
+	if (array_3 == nullptr &&  array_2 == nullptr && array_1 == nullptr)
 	{
 		cout << "만들어진 배열이 없습니다" << endl;
-		
 	}
 
-	else if (ArrayHandler::array_3 == nullptr && ArrayHandler::array_2 == nullptr && ArrayHandler::array_1 != nullptr)
+	else if (array_3 == nullptr &&  array_2 == nullptr && array_1 != nullptr)
 	{
-		ArrayHandler::array_1[col] = val;
+		array_1[col] = val;
 	}
 
-	else if (ArrayHandler::array_3 == nullptr && ArrayHandler::array_2 != nullptr && ArrayHandler::array_1 != nullptr)
+	else if (array_3 == nullptr &&  array_2 != nullptr && array_1 != nullptr)
 	{
-		ArrayHandler::array_2[row][col] = val;
+		array_2[row][col] = val;
 	}
 
-	else if (ArrayHandler::array_3 != nullptr && ArrayHandler::array_2 != nullptr && ArrayHandler::array_1 != nullptr)
+	else if (array_3 != nullptr &&  array_2 != nullptr && array_1 != nullptr)
 	{
-		ArrayHandler::array_3[flr][row][col] = val;
+		array_3[flr][row][col] = val;
+	}
+}
+
+
+void ArrayHandler::deleteElement(bool row_or_col)
+{
+	if (array_3 == nullptr &&  array_2 == nullptr && array_1 == nullptr)
+	{
+		cout << "만들어진 배열이 없습니다" << endl;
+	}
+
+	else if (array_3 == nullptr &&  array_2 == nullptr && array_1 != nullptr)
+	{
+		if (row_or_col)
+		{
+			delete[] array_1;
+			//array_1 = nullptr;
+		}
+		else
+		{
+			int col;
+			cout << "몇 번째 열을 지울까요 : ";
+			cin >> col;
+			delete array_1;
+		}
+	}
+
+	else if (array_3 == nullptr &&  array_2 != nullptr && array_1 != nullptr)
+	{
+		if (row_or_col)
+		{
+			int row;
+			cout << "몇 번째 행을 지울까요 : ";
+			cin >> row;
+			delete[] array_2[row-1];
+		}
+	}
+
+	else if (array_3 != nullptr &&  array_2 != nullptr && array_1 != nullptr)
+	{
+		if (row_or_col)
+		{
+			int flr, row;
+			cout << "몇 번째 행렬을 지울까요 : ";
+			cin >> flr;
+
+			cout << "몇 번째 행을 지울까요 : ";
+			cin >> row;
+			delete[] array_3[flr-1][row-1];
+		}
 	}
 }
 

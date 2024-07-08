@@ -27,12 +27,11 @@ public:
 	void InputRandNumber(int* array, int num);
 	void showElement();
 	void changeElement(int val, int col, int row, int flr);
-	void insertElement();
-	void deleteElement();
+	void deleteElement(bool row_or_col);
 	void SelectColnum(int num);
 	void SelectRownum(int num);
 	void SelectFlrnum(int num);
-	int SelectElement();
+
 
 	~ArrayHandler()
 	{

@@ -14,14 +14,23 @@ enum Menu
 	EXIT_PROGRAM
 };
 
+enum Dimension
+{
+	ONE_DIM = 1,
+	TWO_DIM,
+	THREE_DIM
+};
+
 
 void showMenu();
 void makeArray();
 void changeElement();
+void deleteElement();
 
 
 void showMenu()
 {
+	cout << endl;
 	cout << "----Menu----" << endl;
 	cout << "1. 배열 만들기" << endl;
 	cout << "2. 배열 요소 확인" << endl;
@@ -44,18 +53,21 @@ void makeArray()
 
 	switch (num)
 	{
-	case 1:
+	case ONE_DIM:
 		Ah.Make1dimArray();
 		break;
-	case 2:
+
+	case TWO_DIM:
 		Ah.SelectRownum(num);
 		Ah.Make2dimArray();
 		break;
-	case 3:
+	
+	case THREE_DIM:
 		Ah.SelectRownum(num);
 		Ah.SelectFlrnum(num);
 		Ah.Make3dimArray();
 		break;
+	
 	default:
 		break;
 	}
@@ -76,6 +88,29 @@ void changeElement()
 	cout << endl;
 
 	Ah.changeElement(val, col - 1, row - 1, flr - 1);
+}
+
+
+void deleteElement()
+{
+	int choice;
+
+	cout << endl;
+	cout << "1. 행 삭제" << endl;
+	cout << "2. 열 삭제" << endl;
+	cout << "선 택 : " << endl;
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1:
+		Ah.deleteElement(true);
+	case 2:
+		Ah.deleteElement(false);
+
+	default:
+		break;
+	}
 }
 
 
@@ -101,6 +136,10 @@ void main()
 		
 		case CHANGE_ELEMENT:
 			changeElement();
+			break;
+
+		case DELETE_ELEMENT:
+			deleteElement();
 			break;
 		
 		default:
